@@ -1,2 +1,2 @@
 # rentc-javafx
-RentC built in javaFX
+RentC built in javaFX in InelliJ Idea.
