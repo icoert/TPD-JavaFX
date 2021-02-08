@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FilesController">
    <children>
       <Text layoutX="24.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Files" wrappingWidth="195.03912353515625">
@@ -15,13 +14,12 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <TableView layoutX="68.0" layoutY="88.0" prefHeight="424.0" prefWidth="664.0">
+      <TableView fx:id="tableViewFiles" layoutX="68.0" layoutY="88.0" prefHeight="424.0" prefWidth="664.0">
         <columns>
-          <TableColumn prefWidth="439.199951171875" text="C1" />
-          <TableColumn minWidth="0.0" prefWidth="224.80010986328125" text="C2" />
+          <TableColumn fx:id="tableFile" prefWidth="663.2000122070312" text="File" />
         </columns>
       </TableView>
-      <Button fx:id="btnUpload" layoutX="340.0" layoutY="541.0" mnemonicParsing="false" onAction="#uploadAction" prefHeight="35.0" prefWidth="101.0" text="Upload a file" />
-      <Button fx:id="btnUsers" layoutX="659.0" layoutY="27.0" mnemonicParsing="false" onAction="#showUsersAction" prefHeight="26.0" prefWidth="74.0" text="Users" />
+      <Button fx:id="btnUpload" layoutX="340.0" layoutY="541.0" mnemonicParsing="false" onAction="#uploadAction" prefHeight="35.0" prefWidth="102.0" text="Upload a file" />
+      <Button fx:id="btnUsers" layoutX="631.0" layoutY="27.0" mnemonicParsing="false" onAction="#showUsersAction" prefHeight="35.0" prefWidth="102.0" text="Users" />
    </children>
 </AnchorPane>

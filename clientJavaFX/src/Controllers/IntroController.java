@@ -41,17 +41,25 @@ public class IntroController {
             objectOutput.writeObject(option);
 
             ObjectInputStream objectInput = new ObjectInputStream(socket.getInputStream());
-            Object message = objectInput.readObject();
+            Object result = objectInput.readObject();
+            Users user = (Users) result;
 
-            System.out.println(message);
+            if(user != null && user.getVisualization()){
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/FilesView.fxml"));
-            AnchorPane filesView = (AnchorPane) loader.load();
-            Scene fileActionScene = new Scene(filesView);
-            Stage filesViewStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            filesViewStage.setTitle("Files Viewer");
-            filesViewStage.setScene(fileActionScene);
-            filesViewStage.show();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/FilesView.fxml"));
+                AnchorPane filesView = loader.load();
+
+                FilesController controller = loader.getController();
+                controller.initData(user);
+                
+                Scene fileActionScene = new Scene(filesView);
+                Stage filesViewStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                filesViewStage.setTitle("Files Viewer");
+                filesViewStage.setScene(fileActionScene);
+                filesViewStage.show();
+            }
+
 
         } catch (IOException  | ClassNotFoundException e) {
             System.out.println("Client Error: " + e.getMessage());
