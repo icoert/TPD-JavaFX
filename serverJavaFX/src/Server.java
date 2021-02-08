@@ -1,15 +1,10 @@
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import Models.Users;
-import Models.Customers;
+
+import static Services.UserService.*;
 
 public class Server {
     public static void main(String[] args) {
@@ -30,28 +25,98 @@ public class Server {
 
                 switch (input) {
                     case "checkToken": {
-                        ArrayList<Users> usersList = getUsersList();
+                        String token = clientInput.split("/")[1];
+                        Users result = checkToken(token);
 
+                        ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                        objectOutput.writeObject(result);
+                    }
+                    break;
+                    case "showUsers": {
+                        ArrayList<Users> usersList = getUsersList();
 
                         ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
                         objectOutput.writeObject(usersList);
                     }
                     break;
-//                    case "showCustomers": {
-//                        ArrayList<Customers> customersList = getCustomersList();
-//
-//                        ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
-//                        objectOutput.writeObject(customersList);
-//                    }
-//                    break;
-//                    case "inputCustomer": {
-//                        String tableClient = clientInput.split("/")[1];
-//                        String tableBirthday = clientInput.split("/")[2];
-//                        String tableCity = clientInput.split("/")[3];
-//                        System.out.println(tableClient + ", " + tableBirthday + ", " + tableCity);
-//                        addCustomer(tableClient, tableBirthday, tableCity);
-//                    }
-//                    break;
+                    case "inputUser": {
+                        String tableToken = clientInput.split("/")[1];
+                        String tableUsername = clientInput.split("/")[2];
+                        String tableAdmin = clientInput.split("/")[3];
+                        String tableUpload = clientInput.split("/")[4];
+                        String tableDownload = clientInput.split("/")[5];
+                        String tableVisualization = clientInput.split("/")[6];
+                        addUser(tableToken, tableUsername, tableAdmin, tableUpload, tableDownload, tableVisualization);
+                    }
+                    break;
+                    case "getFiles": {
+                        File currDir = new File("");
+                        String path = currDir.getAbsolutePath();
+                        File destination = new File(path + "\\src\\Files");
+                        ArrayList<String> allFiles = new ArrayList<>();
+                        for (final File fileEntry : destination.listFiles()) {
+                            if (!fileEntry.isDirectory()) {
+                                allFiles.add(fileEntry.getName());
+                            }
+                        }
+                        if(!allFiles.isEmpty()){
+                            ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                            objectOutput.writeObject(allFiles);
+                        }
+                    }
+                    break;
+                    case "viewFile": {
+                        String fileName = clientInput.split("/")[1];
+                        File currDir = new File("");
+                        String selectedFile = currDir.getAbsolutePath() + "\\src\\Files\\" + fileName;
+
+                        FileInputStream fis = new FileInputStream(selectedFile);
+                        byte[] data = new byte[(int) selectedFile.length()];
+                        fis.read(data);
+                        fis.close();
+                        String content = new String(data, "UTF-8");
+
+                        ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                        objectOutput.writeObject(content);
+                    }
+                    break;
+                    case "uploadFile": {
+                        String fileName = clientInput.split("/", 3)[1];
+                        String content = clientInput.split("/", 3)[2];
+                        try {
+                            File currDir = new File("");
+                            String path = currDir.getAbsolutePath();
+                            String fullFilePath = path + "\\src\\Files\\" + fileName;
+                            File myObj = new File(fullFilePath);
+                            if (myObj.createNewFile()) {
+                                System.out.println("File created: " + myObj.getName());
+                                try {
+                                    FileWriter myWriter = new FileWriter(fullFilePath);
+                                    myWriter.write(content);
+                                    myWriter.close();
+                                    ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                                    objectOutput.writeObject(true);
+                                    System.out.println("Successfully wrote to the file.");
+                                } catch (IOException e) {
+                                    ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                                    objectOutput.writeObject(false);
+                                    System.out.println("An error occurred.");
+                                    e.printStackTrace();
+                                }
+
+                            } else {
+                                ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                                objectOutput.writeObject(false);
+                                System.out.println("File already exists.");
+                            }
+                        } catch (IOException e) {
+                            ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
+                            objectOutput.writeObject(false);
+                            System.out.println("An error occurred.");
+                            e.printStackTrace();
+                        }
+                    }
+                    break;
                 }
             }
 
@@ -60,76 +125,11 @@ public class Server {
         }
     }
 
-    public static Connection getConnection(){
-        Connection connector;
-        try{
-            connector = DriverManager.getConnection("jdbc:sqlserver://;server_name=DESKTOP-VDVDFS2;databaseName=JavaUsers;integratedSecurity=true");
-            return connector;
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-            return null;
-        }
-    }
-
-    public static ArrayList<Customers> getCustomersList(){
-        ArrayList<Customers> customersList = new ArrayList<>();
-        Connection connector = getConnection();
-        String query = "SELECT * FROM Customers";
-        Statement st;
-        ResultSet rs;
-
-        try {
-            st = connector.createStatement();
-            rs= st.executeQuery(query);
-
-            Customers customer;
-            while(rs.next()) {
-                customer = new Customers(rs.getString("Name"), rs.getDate("BirthDate"), rs.getString("Location"));
-
-                customersList.add(customer);
+    public void listFilesForFolder(final File folder) {
+        for (final File fileEntry : folder.listFiles()) {
+            if (!fileEntry.isDirectory()) {
+                System.out.println(fileEntry.getName());
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return customersList;
-    }
-
-    public static ArrayList<Users> getUsersList(){
-        ArrayList<Users> usersList = new ArrayList<>();
-        Connection connector = getConnection();
-        String query = "SELECT * FROM Users";
-        Statement st;
-        ResultSet rs;
-
-        try {
-            st = connector.createStatement();
-            rs= st.executeQuery(query);
-
-            Users user;
-            while(rs.next()) {
-                user = new Users(rs.getString("Token"), rs.getString("Username"), rs.getBoolean("Admin"), rs.getBoolean("Upload"), rs.getBoolean("Download"),rs.getBoolean("Visualization"));
-
-                usersList.add(user);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return usersList;
-    }
-
-    public static void addCustomer(String tableClient, String tableBirthday, String tableCity) {
-        String query = "INSERT INTO Customers VALUES (\'" + tableClient + "\',\'" + tableBirthday + "\',\'" + tableCity + "\')";
-        executeQuery(query);
-    }
-
-    private static void executeQuery(String query) {
-        Connection connector = getConnection();
-        Statement st;
-        try{
-            st = connector.createStatement();
-            st.executeUpdate(query);
-        }catch(Exception ex){
-            ex.printStackTrace();
         }
     }
 }

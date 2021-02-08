@@ -24,6 +24,14 @@ public class Users implements Serializable {
 
     public void setUsername(String username) { Username = username; }
 
+    public Boolean getAdmin () {
+        return Admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        Upload = admin;
+    }
+
     public Boolean getUpload () {
         return Upload;
     }
