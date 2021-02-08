@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7d2c4d87-229a-4f52-bc43-06cc48173e42" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/clientJavaFX/clienatJavaFX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverJavaFX/serverJavaFX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverJavaFX/src/Models/Customers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serverJavaFX/src/Models/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_mysql_connector_java_8_0_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clienatJavaFX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/clienatJavaFX.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo-javafx-video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/sample/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/sample/Customers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/sample/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/sample/clientView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/CustomerProcessor$Parameter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/CustomerProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Provider$Connector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Provider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Server$Runner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/clienatJavaFX/save/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Customers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/clientView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/CustomerProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Provider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/sample.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1o9WO4YYdRB6fm0yBUiv15Z5JvN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/serverJavaFX/src" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\silvi\IdeaProjects\TPD_Project\serverJavaFX\src" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="clienatJavaFX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d2c4d87-229a-4f52-bc43-06cc48173e42" name="Default Changelist" comment="" />
+      <created>1612699254186</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612699254186</updated>
+      <workItem from="1612699256407" duration="42000" />
+      <workItem from="1612699324066" duration="568000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

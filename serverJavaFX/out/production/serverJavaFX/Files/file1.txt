@@ -1,0 +1,4 @@
+('7fDC9XjUbY2Z6Xa','admin',1,1,1,1)
+('qwe213Sx27S98cD','user1',0,1,1,1)
+('vncW2145sxAd210','user2',0,0,1,1)
+('jh21UsAx45SC75Q','user3',0,0,0,1)

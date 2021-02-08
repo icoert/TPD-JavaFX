@@ -70,14 +70,17 @@ public class Server {
                         File currDir = new File("");
                         String selectedFile = currDir.getAbsolutePath() + "\\src\\Files\\" + fileName;
 
-                        FileInputStream fis = new FileInputStream(selectedFile);
-                        byte[] data = new byte[(int) selectedFile.length()];
+                        File fileToSend = new File(selectedFile);
+
+                        FileInputStream fis = new FileInputStream(fileToSend);
+                        byte[] data = new byte[(int) fileToSend.length()];
                         fis.read(data);
                         fis.close();
                         String content = new String(data, "UTF-8");
 
                         ObjectOutputStream objectOutput = new ObjectOutputStream(socket.getOutputStream());
                         objectOutput.writeObject(content);
+
                     }
                     break;
                     case "uploadFile": {

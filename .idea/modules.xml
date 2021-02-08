@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/clienatJavaFX.iml" filepath="$PROJECT_DIR$/clienatJavaFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serverJavaFX/serverJavaFX.iml" filepath="$PROJECT_DIR$/serverJavaFX/serverJavaFX.iml" />
+    </modules>
+  </component>
+</project>
